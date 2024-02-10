@@ -189,78 +189,6 @@ if(isset($_POST['logout'])){
         </div>
     </div>
 
-    <!-- Tertiary education Modal -->
-    <div class="modal fade" id="edit_tertiaryEducation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: #DED1B7; border:1px solid #262018;">
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Tertiary Education</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <form class="d-flex flex-column" method="post">
-                    <label class="form-label" for="course">Course:</label>
-                    <input class="form-control" type="text" id="course" name="course" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="school">School:</label>
-                    <input class="form-control" type="text" id="school" name="school" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="school_address">School address:</label>
-                    <input class="form-control" type="text" id="school_address" name="school_address" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="school_year">School year:</label>
-                    <input class="form-control" type="text" id="school_year" name="school_year" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <a class="btn mt-4" style="background-color: #262018; color:#DED1B7;" 
-                    name="tertiary_submit_btn">Save changes</a>
-                </form>
-
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- Secondary education Modal -->
-    <div class="modal fade" id="edit_secondaryEducation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: #DED1B7; border:1px solid #262018;">
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Secondary Education</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <form class="d-flex flex-column" method="post">
-                    <label class="form-label" for="strand">Strand:</label>
-                    <input class="form-control" type="text" id="strand" name="strand" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="school">School:</label>
-                    <input class="form-control" type="text" id="school" name="school" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="school_address">School address:</label>
-                    <input class="form-control" type="text" id="school_address" name="school_address" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="school_year">School year:</label>
-                    <input class="form-control" type="text" id="school_year" name="school_year" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <a class="btn mt-4" style="background-color: #262018; color:#DED1B7;" 
-                    name="tertiary_submit_btn">Save changes</a>
-                </form>
-
-            </div>
-        </div>
-        </div>
-    </div>
-
     <!-- delete work experience Modal -->
     <div class="modal fade" id="delete_workExperience" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -278,88 +206,7 @@ if(isset($_POST['logout'])){
         </div>
         </div>
     </div>
-
-    <!-- add soft skill Modal -->
-    <div class="modal fade" id="add_softSkills" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: #DED1B7; border:1px solid #262018;">
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Soft skill</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <form class="d-flex flex-column" method="post">
-                    <label class="form-label" for="soft_skill">Type-in your soft skill:</label>
-                    <input class="form-control" type="text" id="soft_skill" name="soft_skill" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <a class="btn mt-4" style="background-color: #262018; color:#DED1B7;" 
-                    name="add_soft_skill">Add soft skill</a>
-                </form>
-
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- add hard skill Modal -->
-    <div class="modal fade" id="add_hardSkills" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: #DED1B7; border:1px solid #262018;">
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Hard skill</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <form class="d-flex flex-column" method="post">
-                    <label class="form-label" for="hard_skill">Type-in your hard skill:</label>
-                    <input class="form-control" type="text" id="hard_skill" name="hard_skill" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <a class="btn mt-4" style="background-color: #262018; color:#DED1B7;" 
-                    name="add_soft_skill">Add hard skill</a>
-                </form>
-
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- add project Modal -->
-    <div class="modal fade" id="add_project" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: #DED1B7; border:1px solid #262018;">
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Project</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <form class="d-flex flex-column" method="post" enctype="multipart/form-data">
-                    <label class="form-label" for="project_title">Project title:</label>
-                    <input class="form-control" type="text" id="project_title" name="project_title" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="project_link">project_link:</label>
-                    <input class="form-control" type="text" id="project_link" name="project_link" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <label class="form-label mt-3" for="project_image">Project image:</label>
-                    <input class="form-control" type="file" id="project_image" name="project_image" 
-                            style="background-color: #DED1B7; border: 1px solid #262018;">
-
-                    <a class="btn mt-4" style="background-color: #262018; color:#DED1B7;" 
-                    name="add_project">Add project</a>
-                </form>
-
-            </div>
-        </div>
-        </div>
-    </div>
-
-
+    
     <!--Modals end-->
 
     <!--NAVBAR-->
@@ -496,7 +343,7 @@ if(isset($_POST['logout'])){
                     </div>
                     <!--edit-icon button container-->
                     <div class="d-flex justify-content-end" style="position: absolute; bottom: 1rem; right: 1rem;">
-                        <a class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#edit_tertiaryEducation" href="#">
+                        <a class="btn btn-edit" href="#">
                             <i class="fa-regular fa-pen-to-square" style="color: #DED1B7;"></i>
                         </a>
                     </div>
@@ -517,7 +364,7 @@ if(isset($_POST['logout'])){
                     </div>
                     <!--edit-icon button container-->
                     <div class="d-flex justify-content-end" style="position: absolute; bottom: 1rem; right: 1rem;">
-                        <a class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#edit_secondaryEducation" href="#">
+                        <a class="btn btn-edit" href="#">
                             <i class="fa-regular fa-pen-to-square" style="color: #DED1B7;"></i>
                         </a>
                     </div>
@@ -689,13 +536,12 @@ while($fetch_hard_skill=mysqli_fetch_assoc($get_hard_skills)){
     echo '
     
     <tr>
-        <td style="background-color: #DED1B7;">'.$id,'</td>
-        <td style="background-color: #DED1B7;">'.$hard_skill.'</td>
+        <td style="background-color: #DED1B7; vertical-align: middle;">'.$id,'</td>
+        <td style="background-color: #DED1B7; vertical-align: middle;">'.$hard_skill.'</td>
         
-        <td style="background-color: #DED1B7;">
-            <input class="form-range w-100" type="range" min="1" max="10" value='.$skill_rating.' step="1" disabled>
+        <td style="background-color: #DED1B7; vertical-align: middle;">
+            <progress class="w-100" style="height: 1.3rem" min="1" max="10" value='.$skill_rating.'></progress>
         </td>
-
         
         <td style="background-color: #DED1B7;" colspan="2" class="text-end">
             <a class="btn btn-edit mb-1" href="#"><i class="fa-regular fa-pen-to-square" style="color: #262018;"></i></a>
@@ -720,7 +566,7 @@ while($fetch_hard_skill=mysqli_fetch_assoc($get_hard_skills)){
                      <div><h4>My projects</h4></div>
                      <!-- Add btn -->
                      <div class="d-flex justify-content-end">
-                         <a class="btn btn-add" data-bs-toggle="modal" data-bs-target="#add_project" href="#">
+                         <a class="btn btn-add" href="#">
                              <i class="fa-solid fa-plus" style="color: #DED1B7;"></i>
                          </a>
                      </div>
