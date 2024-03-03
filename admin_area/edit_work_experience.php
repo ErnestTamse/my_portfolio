@@ -59,12 +59,18 @@ if(isset($_GET['id'])){
             border: 1px solid #262018; 
             border-radius: 1rem; 
         }
+
+        @media (max-width: 576px) {
+            .container-custom {
+                width: 90% !important;
+            }
+        }
     </style>
 
 </head>
 <body style="background-color: grey;">
 
-    <div data-aos="fade-right" class="container form-container w-50" 
+    <div data-aos="fade-right" class="container container-custom form-container w-50" 
         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
         
         <h1 class="fs-5 mt-3">Edit work experience</h1>

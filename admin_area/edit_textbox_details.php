@@ -19,18 +19,31 @@ if(!isset($_SESSION['username'])){
     echo "<br>User ID: " . $user_id;
 }
 
-if(isset($_POST['add_skill'])){
-    $soft_skill = $_POST['soft_skill'];
-    $skill_rating = $_POST['skill_rating'];
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    
+    $get_about = mysqli_query($conn, "SELECT * FROM `more_about_me` WHERE id=$id");
+    
+    while($fetch_data = mysqli_fetch_assoc($get_about)){
+        $id = $fetch_data['id'];
+        $default_description = $fetch_data['about_me'];
+    }
 
-    $insert_data = mysqli_query($conn, "INSERT INTO `soft_skills` (user_id, soft_skills, skill_rating) 
-        VALUE ($user_id, '$soft_skill', $skill_rating)");
+    if(isset($_POST['save_changes'])){
+        $description = $_POST['about_me'];
+        $escaped_description = str_replace("'", "\'", $description);
 
-        if($insert_data) {
-            echo "<script>alert('Skill Successfully Added.')</script>";
-            echo "<script>window.open('index.php#skills', '_self')</script>";
-        }
+        //update query
+        $update_about = mysqli_query($conn, "UPDATE `more_about_me` SET 
+            about_me = '$escaped_description' WHERE id=$id");
+
+            if($update_about) {
+                echo "<script>alert('About Author Successfully Updated.')</script>";
+                echo "<script>window.open('index.php#about', '_self')</script>";
+            }
+    }
 }
+
 
 ?>
 
@@ -63,15 +76,8 @@ if(isset($_POST['add_skill'])){
             .container-custom {
                 width: 90% !important;
             }
-            .container2 {
-                display: flex;
-                flex-direction: column;
-            }
-            .container3 {
-                width: 100% !important;
-                margin-top: .75rem;
-            }
         }
+        
     </style>
 
 </head>
@@ -80,38 +86,19 @@ if(isset($_POST['add_skill'])){
     <div data-aos="fade-right" class="container container-custom form-container w-50" 
         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
         
-        <h1 class="fs-5 mt-3">Add soft skill</h1>
-        <p style="text-align: justify;">Soft skills, also known as interpersonal or people skills, are the personal attributes 
-            and qualities that relate to how individuals interact with others and navigate their 
-            social and work environments.
+        <h1 class="fs-5 mt-3">Get to know me more</h1>
+        <p style="text-align: justify;">
+            Tell us more about you.
         </p>
         <hr>
         <form class="d-flex flex-column" method="post">
-            <div class="container2 d-flex gap-1">
-                <div class="w-100">
-                    <label class="form-label" for="soft_skill">Skill:</label>
-                    <input class="form-control" type="text" id="soft_skill" name="soft_skill" placeholder="e.g.(leadership, managearal, communication)." 
-                        style="background-color: #DED1B7; border: 1px solid #262018;" required>
-                </div>
-                <div class="container3 w-50">
-                    <label class="form-label">Rate this skill from 1 to 10:</label>
-                    <select class="form-select" name="skill_rating" style="background-color: #DED1B7; border: 1px solid #262018;" required>
-                        <option value="" disabled selected>Select rating</option>
-                        <option>10</option>
-                        <option>9</option>
-                        <option>8</option>
-                        <option>7</option>
-                        <option>6</option>
-                        <option>5</option>
-                        <option>4</option>
-                        <option>3</option>
-                        <option>2</option>
-                        <option>1</option>
-                    </select>
-                </div>
+            <div class="w-100">
+                <label class="form-label" for="about_me">Write here:</label>
+                <textarea class="form-control" type="text" id="about_me" name="about_me" 
+                    style="background-color: #DED1B7; border: 1px solid #262018; height: 230px;" required><?php echo $default_description; ?></textarea>
             </div>
             <button type="submit" class="btn mt-4" style="background-color: #262018; color: #DED1B7;" 
-                    name="add_skill">Add skill</button>
+                    name="save_changes">Save changes</button>
         </form>
 
     </div>

@@ -314,7 +314,7 @@
                         Download CV
                     </button>
                     <button class="btn btn-download" onclick="location.href='./#contact'">
-                        Contact Info
+                        Email me
                     </button>
                 </div>
 
@@ -395,10 +395,21 @@
                 padding-bottom: 1rem;">Soft Skills</h2>
                 <div class="soft-skills">
                     <ul style="list-style: none;">
-                        <li><i class="fa-solid fa-square-check" style="color: #262018; margin-right: 8px;"></i>efgfd</li>
-                        <li><i class="fa-solid fa-square-check" style="color: #262018; margin-right: 8px;"></i>gdsffdg</li>
-                        <li><i class="fa-solid fa-square-check" style="color: #262018; margin-right: 8px;"></i>dgdh</li>
-                        <li><i class="fa-solid fa-square-check" style="color: #262018; margin-right: 8px;"></i>dfghfd</li>
+                        <li class="mb-2">
+                            <i class="fa-solid fa-square-check" style="color: #262018; margin-right: 8px;"></i>
+                            <span>Skill label</span>
+                            <span><progress style="height: 1.3rem" class="w-100" min="1" max="10" value="5"></progress></span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa-solid fa-square-check" style="color: #262018; margin-right: 8px;"></i>
+                            <span>Skill label</span>
+                            <span><progress style="height: 1.3rem" class="w-100" min="1" max="10" value="5"></progress></span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa-solid fa-square-check" style="color: #262018; margin-right: 8px;"></i>
+                            <span>Skill label</span>
+                            <span><progress style="height: 1.3rem" class="w-100" min="1" max="10" value="5"></progress></span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -483,18 +494,18 @@
             <form>
                 
                 <div class="d-flex contact-info" style="display: grid; grid-template-columns: repeat(autofit, minmax(300px 1fr)); gap: .5rem">    
-                    <div class="mb-3">
+                    <div class="mb-3 w-100">
                         <label for="user_email" class="form-label text-light">Email address</label>
-                        <input type="email" class="form-control" id="user_email">
+                        <input type="email" class="form-control" id="user_email" placeholder="Your email" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 w-100">
                         <label for="subject" class="form-label text-light">Subject</label>
-                        <input type="text" class="form-control" id="subject">
+                        <input type="text" class="form-control" id="subject" placeholder="Purpose">
                     </div>            
                 </div>
 
                 <div class="message-box" style="display: grid; grid-template-columns: 1fr;">
-                    <textarea name="message" cols="30" rows="10" 
+                    <textarea class="form-control" name="message" cols="30" rows="10" 
                     placeholder="Your message here:" 
                     style="padding: 10px;"></textarea>
                 </div>

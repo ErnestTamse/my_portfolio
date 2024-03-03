@@ -19,19 +19,34 @@ if(!isset($_SESSION['username'])){
     echo "<br>User ID: " . $user_id;
 }
 
-if(isset($_POST['add_skill'])){
-    $soft_skill = $_POST['soft_skill'];
-    $skill_rating = $_POST['skill_rating'];
+if(isset($_GET['id'])){
+    $skill_id = $_GET['id'];
 
-    $insert_data = mysqli_query($conn, "INSERT INTO `soft_skills` (user_id, soft_skills, skill_rating) 
-        VALUE ($user_id, '$soft_skill', $skill_rating)");
+    //query data
+    $get_skill = mysqli_query($conn, "SELECT * FROM `hard_skills` WHERE id=$skill_id");
 
-        if($insert_data) {
-            echo "<script>alert('Skill Successfully Added.')</script>";
-            echo "<script>window.open('index.php#skills', '_self')</script>";
-        }
+    //fetch data
+    while ($fetch_skill = mysqli_fetch_assoc($get_skill)){
+        $hard_skill = $fetch_skill['hard_skills'];
+        $skill_rating = $fetch_skill['skill_rating'];
+    }
+
+    if(isset($_POST['edit_skill'])){
+        $hard_skill = $_POST['hard_skill'];
+        $skill_rating = $_POST['skill_rating'];
+        
+        //update query
+        $update_skill = mysqli_query($conn, "UPDATE hard_skills SET 
+                hard_skills = '$hard_skill', skill_rating = $skill_rating 
+                WHERE id=$skill_id");
+
+            if($update_skill) {
+                echo "<script>alert('Skill Successfully Updated.')</script>";
+                echo "<script>window.open('index.php#skills', '_self')</script>";
+            }
+    }
+
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +54,7 @@ if(isset($_POST['add_skill'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add soft skill</title>
+    <title>Edit hard skill</title>
 
     <!--CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -80,23 +95,23 @@ if(isset($_POST['add_skill'])){
     <div data-aos="fade-right" class="container container-custom form-container w-50" 
         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
         
-        <h1 class="fs-5 mt-3">Add soft skill</h1>
-        <p style="text-align: justify;">Soft skills, also known as interpersonal or people skills, are the personal attributes 
-            and qualities that relate to how individuals interact with others and navigate their 
-            social and work environments.
+        <h1 class="fs-5 mt-3">Edit hard skill</h1>
+        <p style="text-align: justify;">Hard skills are specific, teachable abilities or knowledge that can be 
+        easily quantified and measured. They are often technical in nature and can be acquired through education, 
+        training, or experience.
         </p>
         <hr>
         <form class="d-flex flex-column" method="post">
             <div class="container2 d-flex gap-1">
                 <div class="w-100">
-                    <label class="form-label" for="soft_skill">Skill:</label>
-                    <input class="form-control" type="text" id="soft_skill" name="soft_skill" placeholder="e.g.(leadership, managearal, communication)." 
+                    <label class="form-label" for="hard_skill">Skill:</label>
+                    <input class="form-control" type="text" id="hard_skill" value="<?php echo $hard_skill; ?>" name="hard_skill" placeholder="e.g.(data analysis, graphic design, accounting)." 
                         style="background-color: #DED1B7; border: 1px solid #262018;" required>
                 </div>
                 <div class="container3 w-50">
                     <label class="form-label">Rate this skill from 1 to 10:</label>
                     <select class="form-select" name="skill_rating" style="background-color: #DED1B7; border: 1px solid #262018;" required>
-                        <option value="" disabled selected>Select rating</option>
+                        <option value="" disabled selected><?php echo $skill_rating; ?></option>
                         <option>10</option>
                         <option>9</option>
                         <option>8</option>
@@ -110,8 +125,9 @@ if(isset($_POST['add_skill'])){
                     </select>
                 </div>
             </div>
+
             <button type="submit" class="btn mt-4" style="background-color: #262018; color: #DED1B7;" 
-                    name="add_skill">Add skill</button>
+                    name="edit_skill">Save changes</button>
         </form>
 
     </div>

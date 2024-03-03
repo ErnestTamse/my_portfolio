@@ -63,13 +63,23 @@ if(isset($_POST['add_work_experience'])){
             border: 1px solid #262018; 
             border-radius: 1rem; 
         }
+
+        @media (max-width: 576px) {
+            .container-custom {
+                width: 90% !important;
+            }
+            .container2 {
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 
 </head>
 <body style="background-color: grey;">
 
-    <div data-aos="fade-right" class="container form-container w-50" 
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div data-aos="fade-right" class="container container-custom form-container w-50" 
+        style="margin-bottom: 3rem;">
         
         <h1 class="fs-5 mt-3">Add work experience</h1>
         <hr>
@@ -88,7 +98,7 @@ if(isset($_POST['add_work_experience'])){
                 style="background-color: #DED1B7; border: 1px solid #262018;" required>
 
             <label class="form-label mt-3">Employment period:</label>
-            <div class="d-flex gap-1">
+            <div class="container2 d-flex gap-1">
                 <div class="w-100">
                     <label class="form-label">Started from:</label>
                     <input class="form-control" type="text" name="started_from" 

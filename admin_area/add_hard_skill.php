@@ -58,12 +58,26 @@ if(isset($_POST['add_skill'])){
             border: 1px solid #262018; 
             border-radius: 1rem; 
         }
+
+        @media (max-width: 576px) {
+            .container-custom {
+                width: 90% !important;
+            }
+            .container2 {
+                display: flex;
+                flex-direction: column;
+            }
+            .container3 {
+                width: 100% !important;
+                margin-top: .75rem;
+            }
+        }
     </style>
 
 </head>
 <body style="background-color: grey;">
 
-    <div data-aos="fade-right" class="container form-container w-50" 
+    <div data-aos="fade-right" class="container container-custom form-container w-50" 
         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
         
         <h1 class="fs-5 mt-3">Add hard skill</h1>
@@ -73,13 +87,13 @@ if(isset($_POST['add_skill'])){
         </p>
         <hr>
         <form class="d-flex flex-column" method="post">
-            <div class="d-flex gap-1">
+            <div class="container2 d-flex gap-1">
                 <div class="w-100">
                     <label class="form-label" for="hard_skill">Skill:</label>
                     <input class="form-control" type="text" id="hard_skill" name="hard_skill" placeholder="e.g.(data analysis, graphic design, accounting)." 
                         style="background-color: #DED1B7; border: 1px solid #262018;" required>
                 </div>
-                <div class="w-50">
+                <div class="container3 w-50">
                     <label class="form-label">Rate this skill from 1 to 10:</label>
                     <select class="form-select" name="skill_rating" style="background-color: #DED1B7; border: 1px solid #262018;" required>
                         <option value="" disabled selected>Select rating</option>
