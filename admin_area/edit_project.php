@@ -29,6 +29,7 @@ if(isset($_GET['id'])){
         $project_title = $fetch_data['project_title'];
         $project_link = $fetch_data['project_link'];
         $project_image = $fetch_data['project_image'];
+        $project_description = $fetch_data['project_description'];
     }
 
     if(isset($_POST['save_changes'])){
@@ -36,8 +37,29 @@ if(isset($_GET['id'])){
         $form_project_title = $_POST['project_title'];
         $form_project_link = $_POST['project_link'];
         
+        $form_project_description = $_POST['project_description'];
+        $escaped_description = str_replace("'", "\'", $form_project_description);
+
         $form_project_image = $_FILES['project_image']['name'];
         $form_project_image_tmp = $_FILES['project_image']['tmp_name'];
+
+        if($form_project_image == ""){
+
+            //set image equal to current image
+            $form_project_image = $project_image;
+
+            $update_tbl = mysqli_query($conn, "UPDATE projects SET 
+            project_title = '$form_project_title', 
+            project_link = '$form_project_link', 
+            project_image = '$form_project_image', 
+            project_description = '$escaped_description' WHERE id=$id");
+        
+            if($update_tbl) {
+                echo "<script>alert('Project Updated Successfully.')</script>";
+                echo "<script>window.open('index.php#projects', '_self')</script>";             
+            }
+
+        }else if ($form_project_image !== ""){
 
         //getting the no. of error in uploading the file     
         $fileError = $_FILES['project_image']['error'];     
@@ -56,7 +78,8 @@ if(isset($_GET['id'])){
                 $update_tbl = mysqli_query($conn, "UPDATE projects SET 
                 project_title = '$form_project_title', 
                 project_link = '$form_project_link', 
-                project_image = '$form_project_image' WHERE id=$id");
+                project_image = '$form_project_image', 
+                project_description = '$escaped_description' WHERE id=$id");
 
                 if($update_tbl) {
                     echo "<script>alert('Project Updated Successfully.')</script>";
@@ -71,7 +94,7 @@ if(isset($_GET['id'])){
         echo "<script>alert('The type of file you provided is not supported')</script>";
     }
 }
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +145,11 @@ if(isset($_GET['id'])){
 
             <label class="form-label mt-3" for="project_image">Project image</label>
             <input class="form-control" type="file" id="project_image" value="<?php echo $project_image; ?>" name="project_image" 
-                style="background-color: #DED1B7; border: 1px solid #262018;" required>
+                style="background-color: #DED1B7; border: 1px solid #262018;">
+
+            <label class="form-label mt-3" for="project_description">Project description:</label>
+            <textarea class="form-control" type="text" id="project_description" name="project_description" placeholder="Write here:" 
+                style="background-color: #DED1B7; border: 1px solid #262018; height: 200px;" required><?php echo $project_description; ?></textarea>
 
             <label class="form-label mt-3" for="project_link">Project link</label>
             <input class="form-control" type="text" id="project_link" value="<?php echo $project_link; ?>" name="project_link" 

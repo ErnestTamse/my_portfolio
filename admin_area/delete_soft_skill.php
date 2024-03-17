@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
 
             if($delete_row) {
                 echo "<script>alert('Skill Successfully Deleted.')</script>";
-                echo "<script>window.open('index.php#soft_skills', '_self')</script>";
+                echo "<script>window.open('index.php#skills', '_self')</script>";
             }
     }else if(isset($_POST['cancel'])) {
 

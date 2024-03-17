@@ -797,13 +797,17 @@ $user_contact_number = $fetch_user_data['mobile_number'];
 
         <!--projects section-->
         <div>
-            <div id="projects" style="padding-top: 50px">
+            <div id="projects" style="padding-top: 50px;">
                 <h1 data-aos="zoom-in-up" class="text-center" 
                     style="color: #F34414; font-family: anton;">PROJECTS
                 </h1>
                 <hr class="mb-4">
             </div>
-            <div data-aos="zoom-in-up" class="card-parent-container" style="padding-bottom: 80px;">
+
+            <div class="container justify-content-center">
+            
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-2 justify-content-center" 
+                data-aos="fade-up">
 
             <?php
 
@@ -823,24 +827,30 @@ $user_contact_number = $fetch_user_data['mobile_number'];
                     $project_id = $fetch_project['id'];
                     $project_title = $fetch_project['project_title'];
                     $project_image = $fetch_project['project_image'];
+                    $project_description = $fetch_project['project_description'];
                     $project_link = $fetch_project['project_link'];
 
                     echo '
-                    <div class="card card-custom">
-                        <img src="./admin_area/project_images/'.$project_image.'" class="card-img-top" alt="..." 
-                            style="padding: 1.75rem; border-radius: 3rem;">
-                        <div class="card-body text-center">
-                            <h4 class="card-title" style="font-family: antonio;">'.$project_title.'</h4>
-                            <a href="'.$project_link.'" class="btn btn-custom">Check on Github</a>
+                    
+                    <div class="col">
+                    <div class="card shadow border-dark" style="background-color: #DED1B7;">
+                        <img src="./admin_area/project_images/'.$project_image.'" class="card-img-top" alt="..." style="height: 175px; object-fit: cover">
+                        <div class="card-body">
+                        <h5 class="card-title" style="font-family: antonio;">'.$project_title.'</h5>
+                        <p class="card-text">'.$project_description.'</p>
                         </div>
-                    </div>
-                    ';
+                        <div class="card-footer">
+                            <a href="'.$project_link.'" class="btn btn-custom btn-sm">Check on Github</a>
+                        </div>
+                      </div>
+                    </div>';
 
                 }
             }
-
+            
             ?>
 
+                </div>
             </div>
         </div>
         <!--project section end-->

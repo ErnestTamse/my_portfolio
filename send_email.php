@@ -29,12 +29,13 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port = 587;
 
 $mail->Username = "tamsealernest57@gmail.com";
-$mail->Password = "kccflpkzstqqvvot"; //my gmail app password
+$mail->Password = "oxpcpdyjmlbjiofy"; //my gmail app password
 $mail->FromName = $sender_email;
 
 $mail->setFrom($sender_email); // Swap $name and $email
 
 //$mail->addAddress('tamsealernest57@gmail.com');
+//receipient
 $mail->addAddress($my_email);
 
 $mail->Subject = $subject;

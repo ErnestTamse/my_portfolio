@@ -28,15 +28,22 @@ if(isset($_GET['id'])){
     //fetch data
     while ($fetch_skill = mysqli_fetch_assoc($get_skill)) {
         $soft_skill = $fetch_skill['soft_skills'];
-        $skill_rating = $fetch_skill['skill_rating'];
+        $curr_skill_rating = $fetch_skill['skill_rating'];
     }
 
     if(isset($_POST['edit_skill'])){
+        
         $soft_skill = $_POST['soft_skill'];
-        $skill_rating = $_POST['skill_rating'];
+        // Check if the 'skill_rating' key exists in the $_POST array
+        $skill_rating = isset($_POST['skill_rating']) ? $_POST['skill_rating'] : '';
 
-        //update query
-        $update_skill = mysqli_query($conn, "UPDATE soft_skills SET 
+        if($skill_rating == "") {
+
+            //set equal to cuurent skill rating
+            $skill_rating =  $curr_skill_rating;
+        
+            //update query
+            $update_skill = mysqli_query($conn, "UPDATE soft_skills SET 
             soft_skills = '$soft_skill', skill_rating = $skill_rating 
             WHERE id=$skill_id");
 
@@ -44,6 +51,19 @@ if(isset($_GET['id'])){
                 echo "<script>alert('Skill Successfully Updated.')</script>";
                 echo "<script>window.open('index.php#skills', '_self')</script>";
             }
+
+        }else if ($skill_rating !== ""){
+
+            //update query
+            $update_skill = mysqli_query($conn, "UPDATE soft_skills SET 
+            soft_skills = '$soft_skill', skill_rating = $skill_rating 
+            WHERE id=$skill_id");
+
+            if($update_skill) {
+                echo "<script>alert('Skill Successfully Updated.')</script>";
+                echo "<script>window.open('index.php#skills', '_self')</script>";
+            }
+        }
     }
 
 }
@@ -110,8 +130,8 @@ if(isset($_GET['id'])){
                 </div>
                 <div class="container3 w-50">
                     <label class="form-label">Rate this skill from 1 to 10:</label>
-                    <select class="form-select" name="skill_rating" style="background-color: #DED1B7; border: 1px solid #262018;" required>
-                        <option value="" disabled selected><?php echo $skill_rating; ?></option>
+                    <select class="form-select" name="skill_rating" style="background-color: #DED1B7; border: 1px solid #262018;">
+                        <option value="" disabled selected><?php echo $curr_skill_rating; ?></option>
                         <option>10</option>
                         <option>9</option>
                         <option>8</option>

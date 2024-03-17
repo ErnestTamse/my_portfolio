@@ -21,6 +21,10 @@ if(!isset($_SESSION['username'])){
 
 if(isset($_POST['add_project'])){
     $project_title = $_POST['project_title'];
+    
+    $project_description = $_POST['project_description'];
+    $escaped_description = str_replace("'", "\'", $project_description);
+    
     $project_link = $_POST['project_link'];
 
     $project_image = $_FILES['project_image']['name'];
@@ -41,8 +45,8 @@ if(isset($_POST['add_project'])){
             move_uploaded_file($project_image_tmp, "./project_images/$project_image");
 
             $insert_data = mysqli_query($conn, "INSERT INTO 
-                `projects` (user_id, project_title, project_image, project_link) 
-                VALUE ($user_id, '$project_title', '$project_image', '$project_link')");
+                `projects` (user_id, project_title, project_image, project_description, project_link) 
+                VALUE ($user_id, '$project_title', '$project_image', '$escaped_description', '$project_link')");
             
             if($insert_data) {
                 echo "<script>alert('Project Successfully Added.')</script>";
@@ -92,8 +96,7 @@ if(isset($_POST['add_project'])){
 </head>
 <body style="background-color: grey;">
 
-    <div data-aos="fade-right" class="container container-custom form-container w-50" 
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div data-aos="fade-right" class="container container-custom form-container mb-5 w-50">
         
         <h1 class="fs-5 mt-3">Add project</h1>
         <hr>
@@ -106,6 +109,10 @@ if(isset($_POST['add_project'])){
             <label class="form-label mt-3" for="project_image">Image:</label>
             <input class="form-control" type="file" id="project_image" name="project_image" 
                 style="background-color: #DED1B7; border: 1px solid #262018;" required>
+
+            <label class="form-label mt-3" for="project_description">Brief project description:</label>
+            <textarea class="form-control" type="text" id="project_description" name="project_description" placeholder="Write here:" 
+                style="background-color: #DED1B7; border: 1px solid #262018; height: 200px;" required></textarea>
 
             <label class="form-label mt-3" for="project_link">Project github link:</label>
             <input class="form-control" type="text" id="project_link" name="project_link" 
