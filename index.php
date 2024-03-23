@@ -796,7 +796,7 @@ $user_contact_number = $fetch_user_data['mobile_number'];
         </div><!--skill section end-->
 
         <!--projects section-->
-        <div>
+        <div class="mb-5">
             <div id="projects" style="padding-top: 50px;">
                 <h1 data-aos="zoom-in-up" class="text-center" 
                     style="color: #F34414; font-family: anton;">PROJECTS
@@ -833,16 +833,16 @@ $user_contact_number = $fetch_user_data['mobile_number'];
                     echo '
                     
                     <div class="col">
-                    <div class="card shadow border-dark" style="background-color: #DED1B7;">
-                        <img src="./admin_area/project_images/'.$project_image.'" class="card-img-top" alt="..." style="height: 175px; object-fit: cover">
-                        <div class="card-body">
-                        <h5 class="card-title" style="font-family: antonio;">'.$project_title.'</h5>
-                        <p class="card-text">'.$project_description.'</p>
+                        <div class="card shadow border-dark" style="background-color: #DED1B7;">
+                            <img src="./admin_area/project_images/'.$project_image.'" class="card-img-top" alt="..." style="height: 175px; object-fit: cover">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-family: antonio;">'.$project_title.'</h5>
+                                <p class="card-text">'.$project_description.'</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="'.$project_link.'" class="btn btn-custom btn-sm">Check on Github</a>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="'.$project_link.'" class="btn btn-custom btn-sm">Check on Github</a>
-                        </div>
-                      </div>
                     </div>';
 
                 }
@@ -897,7 +897,9 @@ $user_contact_number = $fetch_user_data['mobile_number'];
                     </div>
 
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-send text-center" style="min-width: 200px;">Send</button>
+                        <button type="submit" class="btn btn-send text-center" style="min-width: 200px;">
+                            <i class="fa-sharp fa-solid fa-paper-plane me-2"></i>Send
+                        </button>
                     </div>
 
                 </form>

@@ -19,8 +19,14 @@ if(isset($_POST['login_user'])){
     //get the user that match the inputed username from form
     $user_data = mysqli_query($conn, "SELECT * FROM `user` WHERE username='$username_form'");
 
+    // Initialize variables
+    $username = "";
+    $password = "";
+
     //loop through all users data to scan for username and password that could be matched
     while ($fetch_data = mysqli_fetch_assoc($user_data)){
+
+        //assign value to initialized variables
         $username = $fetch_data['username'];
         $password = $fetch_data['password'];
     }
@@ -93,7 +99,7 @@ if(isset($_POST['login_user'])){
 <body style="background-color: #DED1B7;">
 
 
-    <div class="container my-3 py-3 mb-5 mt-5" 
+    <div class="container my-3 py-3 mb-5 mt-5 shadow-lg" 
         style="max-width: 440px; border-radius: 1rem; border: 1px solid #262018; 
         background-color: #262018;">
 
@@ -111,33 +117,38 @@ if(isset($_POST['login_user'])){
 
                     <!--USERNAME-->
                     <div class="form-outline mb-3">
-                        <i class="fa-solid fa-user" style="margin-right: 10px; color: #DED1B7;"></i>
                         <label for="user_username" class="form-label" style="color: #DED1B7;">Username</label>   
-                        <input type="text" class="form-control rounded-0 bg-light" id="user_username" placeholder="username" 
-                        autocomplete="off" required="required" name="username_form" style="color: #262018;" require>                
+                        <div class="input-group mb-3">
+                            <span class="input-group-text rounded-0" id="basic-addon1"><i class="fa-solid fa-user" style="color: grey;"></i></span>
+                            <input type="text" class="form-control rounded-0" placeholder="Username" 
+                            id="user_username" autocomplete="off" name="username_form" required="required" require>
+                        </div>                
                     </div>
 
                     <!--PASSWORD-->
                     <div class="form-outline mb-3">
-                        <i class="fa-solid fa-key" style="margin-right: 10px; color: #DED1B7;"></i>
                         <label for="password" class="form-label" style="color: #DED1B7;">Password</label>
-                        <input type="password" class="form-control rounded-0 bg-light" id="user_password" placeholder="Type in your password" 
-                        autocomplete="off" required="required" name="password_form" style="color: #262018;" require>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text rounded-0" id="basic-addon1"><i class="fa-solid fa-key" style="color: grey;"></i></span>
+                            <input type="password" class="form-control rounded-0" placeholder="Password" 
+                            id="user_password" autocomplete="off" name="password_form" required="required" require>
+                        </div>
                     </div>
-                    
-                    <div class="mt-4">
-                        <input type="submit" class="btn login-hover px-5 rounded-0 border-0" style="background: #F34414; color: #DED1B7;"
-                        value="Login" name="login_user" >
-                        
-                        <div class="d-flex mt-2">
-                            <p style="color: #DED1B7; margin-bottom: 0;">Don't have an Accoun?</p>
-                            <a href="#" class="text-primary">Register here</a>
-                        </div>
 
-                        <div class="d-flex">
-                            <p style="color: #DED1B7;">Forgot password?</p>
-                            <a href="#" class="text-primary">Click here</a>
+                    <div class="mt-4 mb-5">
+
+                        <div class="d-flex gap-1 text-center">
+                            <div>
+                                <input type="submit" class="btn login-hover px-5 rounded-0 border-0 w-100" style="background: #F34414; color: #DED1B7;"
+                                value="Login" name="login_user" >
+                            </div>
+                            <div>
+                                <a href="index.php" class="btn btn-info rounded-0 border-0 w-100">Go back</a>
+                            </div>
                         </div>
+                        <!--<div class="d-flex mt-4">
+                            <p style="color: #DED1B7;">Forgot password? <span><a href="#" class="text-primary">Click here</a></span></p>
+                        </div>-->
                     </div>
 
                 </form>
