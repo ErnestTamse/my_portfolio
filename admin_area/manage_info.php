@@ -103,8 +103,7 @@ if(!isset($_SESSION['username'])){
 </head>
 <body style="background-color: grey;">
 
-    <div data-aos="fade-right" class="container container-custom form-container w-100" 
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div data-aos="fade-right" class="container container-custom form-container w-100 mb-5">
         
         <h1 class="fs-5 mt-3">Manage your information</h1>
         <hr>

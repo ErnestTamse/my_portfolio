@@ -132,8 +132,7 @@ if(isset($_GET['id'])){
 </head>
 <body style="background-color: grey;">
 
-    <div data-aos="fade-right" class="container container-custom form-container w-50" 
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"><!--use this opacity: 0; if the form is blocking the error message-->
+    <div data-aos="fade-right" class="container container-custom form-container w-100 mb-5">
         
         <h1 class="fs-5 mt-3">Edit project</h1>
         <hr>

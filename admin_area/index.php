@@ -530,7 +530,7 @@ if(isset($_POST['logout'])){
                         echo '
 
                         <div>
-                            <p>'.$about_me_description.'</p>
+                            <p style="font-size: .8rem;">'.$about_me_description.'</p>
                         </div>
 
                         <!-- edit-icon button container -->

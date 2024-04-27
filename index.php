@@ -745,8 +745,10 @@ $user_contact_number = $fetch_user_data['mobile_number'];
                             <li class="mb-2">
                             <i class="fa-solid fa-square-check fa-sm" style="margin-right: 8px;"></i>
                                 <span>'.$soft_skill.'</span><br>
-                                <span><progress style="height: 1.3rem" class="w-100 skill-rating" min="1" max="10" 
-                                value="'.$skill_rating.'"></progress></span>
+                                <span>
+                                    <progress style="height: 1.3rem" class="w-100 skill-rating" min="1" max="10" 
+                                    value="'.$skill_rating.'"></progress>
+                                </span>
                             </li>
                             ';
                         }
